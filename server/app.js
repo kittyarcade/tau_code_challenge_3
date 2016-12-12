@@ -35,10 +35,35 @@ app.listen( 3333, function(){
   console.log( 'server up on 3333' );
 }); // end spin up server
 
+
+
+
 app.get( '/', function( req, res ){
   // base url
   console.log( 'base url hit' );
   res.sendFile( path.resolve( 'views/index.html' ) );
 }); // end base url
+
+
+
+
+//POST
+app.post('/', function(req, res){
+console.log('testPost url hit. req.body', req.body);
+jokes.push(req.body);
+console.log(jokes);
+res.send(jokes);
+
+});//end POST
+
+
+
+app.get('/returnJoke', function(req,res){
+  console.log('base url hit in get');
+  res.send(jokes);
+});
+
+
+
 
 app.use( express.static( 'public' ) );
