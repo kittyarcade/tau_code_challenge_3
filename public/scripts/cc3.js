@@ -23,9 +23,9 @@ var postData = function(){
     success: function(data){
        console.log( 'back from post call:', data);
        for(var i = 0; i < data.length; i++){
-        $('#outputDiv').append('<p>'+'Whose Joke: ' + data[i].whoseJoke + '</p>');
-        $('#outputDiv').append('<p>'+'Question: ' + data[i].jokeQuestion + '</p>');
-        $('#outputDiv').append('<p>'+'Punchline: ' + data[i].punchLine + '</p>');
+        $('#outputDiv').append('<p>'+'<strong>' + 'Whose Joke: ' + '</strong>' + data[i].whoseJoke + '</p>');
+        $('#outputDiv').append('<p>'+ '<strong>'  +'Question: '+ '</strong>' + data[i].jokeQuestion + '</p>');
+        $('#outputDiv').append('<p>'+ '<strong>' +'Punchline: '+ '</strong>' + data[i].punchLine + '</p>');
        }
 
     }
@@ -55,6 +55,9 @@ var getJokes = function (){
     console.log( 'addJokeButton on click');
     newJoke();
     postData();
+    $('#whoseJokeIn').val('');
+    $('#questionIn').val('');
+    $('#punchlineIn').val('');
   }); // end addJokeButton on click
 
 
